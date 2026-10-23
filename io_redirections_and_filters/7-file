@@ -1,3 +1,6 @@
 #!/bin/bash
-filename=$'\x5c\x2a\x5c\x5c\x27\x22Best School\x22\x5c\x27\x5c\x5c\x2a\x24\x5c\x3f\x5c\x2a\x5c\x2a\x5c\x2a\x5c\x2a\x5c\x2a\x3a\x29'
-printf '%s\n' 'Best School' > "$filename"
+python3 - <<'PY'
+name = r"""\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)"""
+with open(name, "w") as f:
+    f.write("Best School\n")
+PY
