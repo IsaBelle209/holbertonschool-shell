@@ -1,2 +1,4 @@
 #!/bin/bash
-find . -type f -name '*.gif' -printf '%f\n' | LC_ALL=C sort | sed 's/\.gif$//'
+while IFS= read -r file; do
+    printf '%s\n' "${file%.gif}"
+done < <(find . -type f -name '*.gif' -printf '%f\n' | LC_ALL=C sort)
